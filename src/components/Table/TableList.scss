@@ -1,0 +1,21 @@
+.tableRow {
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, #ffffff 50%, #7551f883 50%);
+  -webkit-transition: background-position 0.25s;
+  -moz-transition: background-position 0.25s;
+  transition: background-position 0.25s;
+
+  &:hover {
+    background-position: 0 -100%;
+    cursor: pointer;
+  }
+}
+
+.tableHeader {
+  background-color: #7551f883;
+
+  .tableCell {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,80 @@
+.navbar {
+  height: 50px;
+  border-bottom: 0.5px solid rgb(163, 162, 162);
+  display: flex;
+  font-size: 14px;
+  color: #555;
+  align-items: center;
+
+  .wrapper {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .search {
+      input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+
+    .title {
+      font-size: 30px;
+    }
+
+    .items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      gap: 10px;
+
+      .toggle {
+        width: 50px;
+        height: 25px;
+        border-radius: 20px;
+        border: 1px solid gray;
+        position: relative;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        transition: all 0.25s ease-out;
+
+        .toggleButton {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background-color: gray;
+          position: absolute;
+          transition: all 0.25s ease-in;
+          &:hover,
+          &:focus,
+          &:active {
+            box-shadow: 0 0 20px #03dac5;
+          }
+        }
+      }
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex: 1;
+
+        .icon {
+          font-size: 20px;
+        }
+
+        .avatar {
+          height: 36px;
+          width: 36px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
