@@ -22,6 +22,7 @@ const refresh_token = "b72d70566eb25542c8f08862b14c02d08bbaa25e";
 let access_token = "a2e453e3ea7629e91184c868ce6cbcc39a289aab";
 
 export const getStravaData = createAsyncThunk("data/getClubMembers", async () => {
+  let id =1188418
   const clubId = ''
   const sixMonthsAgo = moment().subtract(6, "months").unix();
   const today = moment().unix();
@@ -39,6 +40,7 @@ export const getStravaData = createAsyncThunk("data/getClubMembers", async () =>
   
     const res = await axios.get(
       `https://www.strava.com/api/v3/athlete/activities?access_token=${access_token}&per_page=100&after=${sixMonthsAgo}&before=${today}`
+      //`https://www.strava.com/api/v3/clubs/${id}/activities?access_token=${access_token}&per_page=100&before=${today}`
     );
 
     return res.data;
