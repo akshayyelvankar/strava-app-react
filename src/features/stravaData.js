@@ -39,8 +39,8 @@ export const getStravaData = createAsyncThunk("data/getClubMembers", async () =>
     access_token = refreshResponse.data.access_token;
   
     const res = await axios.get(
-      `https://www.strava.com/api/v3/athlete/activities?access_token=${access_token}&per_page=100&after=${sixMonthsAgo}&before=${today}`
-      //`https://www.strava.com/api/v3/clubs/${id}/activities?access_token=${access_token}&per_page=100&before=${today}`
+     // `https://www.strava.com/api/v3/athlete/activities?access_token=${access_token}&per_page=100&after=${sixMonthsAgo}&before=${today}`
+      `https://www.strava.com/api/v3/clubs/${id}/activities?access_token=${access_token}&per_page=100&before=${today}`
     )
 
     return res.data;
@@ -50,7 +50,7 @@ export const getStravaData = createAsyncThunk("data/getClubMembers", async () =>
   }
 });
 const initialState = {
-  data: data_raw,
+  data:[],
   status: "idle",
   error: null,
 };

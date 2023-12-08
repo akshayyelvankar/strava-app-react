@@ -18,7 +18,9 @@ const TableList = () => {
   const { data } = useSelector(allData);
   const navigate = useNavigate();
   const rendered = data.map((ride, index) => {
+    
     const {
+      athlete,
       name,
       start_date,
       type,
@@ -27,9 +29,12 @@ const TableList = () => {
       average_heartrate,
       id,
     } = ride;
+    console.log(data)
+    
     const final = {
+      athlete,
       name,
-      start_date,
+      start_date:ride.start_date,
       type,
       elapsed_time:
         elapsed_time > 3600
@@ -42,8 +47,10 @@ const TableList = () => {
       id,
     };
     return final;
+    
   });
-
+   //console.log(data)
+  
   useEffect(() => {
     // getRides();
     if (dataStatus === "idle") {
@@ -57,12 +64,14 @@ const TableList = () => {
         <Table sx={{ minWidth: 250 }} aria-label="simple table">
           <TableHead>
             <TableRow className="tableHeader">
+            <TableCell className="tableCell">Sr.No</TableCell>
+            <TableCell className="tableCell">Athlete Name</TableCell>
               <TableCell className="tableCell">Workout Name</TableCell>
               <TableCell className="tableCell">Date</TableCell>
               <TableCell className="tableCell">Type</TableCell>
               <TableCell className="tableCell">Elapsed Time</TableCell>
               <TableCell className="tableCell">Distance</TableCell>
-              <TableCell className="tableCell">Avg HR</TableCell>
+              {/* <TableCell className="tableCell">Avg HR</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -77,18 +86,21 @@ const TableList = () => {
                   }}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
+                  <TableCell className="tableCell">{index +1}</TableCell>
+                  <TableCell className="tableCell">{row.athlete.firstname +" "+row.athlete.lastname }</TableCell>
                   <TableCell className="tableCell">{row.name}</TableCell>
                   <TableCell className="tableCell">
-                    {moment(row.start_date).format("MM/DD/YYYY")}
+                  {/* {moment(row.start_date).format("MM/DD/YYYY")} */}
+                  {row.start_date ? moment(row.start_date).format("MM/DD/YYYY") : 'N/A'}
                   </TableCell>
                   <TableCell className="tableCell">{row.type}</TableCell>
                   <TableCell className="tableCell">
                     {row.elapsed_time}
                   </TableCell>
                   <TableCell className="tableCell">{row.distance}</TableCell>
-                  <TableCell className="tableCell">
+                  {/* <TableCell className="tableCell">
                     {row.average_heartrate}
-                  </TableCell>
+                  </TableCell> */}
                 </TableRow>
               ))}
           </TableBody>
