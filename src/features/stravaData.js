@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import moment from "moment";
-import { data_raw } from "./data/stravaData_raw";
+
 
 // export const getStravaData = createAsyncThunk(
 //   "data/getData",
